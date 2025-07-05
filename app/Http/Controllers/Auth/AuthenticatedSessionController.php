@@ -33,6 +33,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // redirect depending on the role
+        $prefix = Auth::user()->role;
+
+
+        if ($prefix === 'admin' || $prefix === 'vendor') {
+            return redirect()->intended(route("$prefix.dashboard", absolute: false));
+        }
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
