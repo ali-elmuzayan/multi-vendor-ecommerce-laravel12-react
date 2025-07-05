@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
             Product::factory(5)->create(['store_id' => $store->id]);
         });
 
-        User::factory(20)->create(['role' => 'customer']);
+        User::factory(20)->create(['role' => 'user']);
     }
 }

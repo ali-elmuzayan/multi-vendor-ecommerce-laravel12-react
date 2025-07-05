@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 /***
  * Notes:
@@ -7,6 +8,4 @@ use Illuminate\Support\Facades\Route;
  */
 
 
-Route::get('/dashboard', function () {
-    return 'admin dashboard';
-})->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->name('dashboard');

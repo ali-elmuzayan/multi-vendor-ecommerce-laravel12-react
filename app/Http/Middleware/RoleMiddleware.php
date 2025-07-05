@@ -15,9 +15,10 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if($request->user()->role !== $role) {
+        $currentUserRole = $request->user()->role;
+        if($currentUserRole !== $role) {
 
-            return redirect()->route('dashboard');
+            return redirect()->route("$currentUserRole.dashboard");
         }
         return $next($request);
     }
